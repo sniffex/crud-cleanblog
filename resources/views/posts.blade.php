@@ -51,7 +51,12 @@
                                             <td>{{ $item->title }}</td>
                                             <td colspan="2">{{ $item->content }}</td>
                                             <td colspan="2"><img alt="" width="200px" src="images/{{$item->image}}"></td>
-                                            <td >{{ $item->category }}</td>
+                                            <td>@if($item->category)
+                                                {{ $item->category->name }}
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
                                             <td colspan="2">
                                                 <a class="btn btn-primary" href="{{url('edit/'.$item->id)}}">Edit</a>
                                                 <a class="btn btn-danger" href="{{url('delete/'.$item->id)}}">Delete</a>

@@ -14,7 +14,7 @@
             {{Session::get('success')}}
         </div>
     @endif
-    <form method="POST" action="{{url('update')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{url('update/'.$data->id)}}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="id" value="{{$data->id}}">
         <div class="form-group">
@@ -32,16 +32,17 @@
             <img src="/images/{{$data->image}}" width="300" height="300">
         </div>
         <div class="form-group">
-            <label for="category">Category:</label>
-            <select class="form-control" name="category">
-                <option value="">Select a category</option>
-                <option value="Category1">Category 1</option>
-                <option value="Category2">Category 2</option>
-                <option value="Category3">Category 3</option>
+            <label for="category_id">Category:</label>
+            <select name="category_id" id="category_id" class="form-control">
+                <option value="">Choose a category</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" @if($category->id == $data->category_id) selected @endif>{{ $category->name }}</option>
+                @endforeach
             </select>
         </div>
+
         <button type="submit"  class="btn btn-primary">Update Post</button>
-        <a href="{{url('posts')}}" class="btn btn-danger">Back</a>
+        <a href="{{url('/')}}" class="btn btn-danger">Back</a>
     </form>
 </div>
 <!-- Link to Bootstrap and jQuery scripts -->

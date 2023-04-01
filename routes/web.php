@@ -16,7 +16,7 @@ Route::get('/', [App\Http\Controllers\ProductsController::class, 'index']);
 Route::get('create', [App\Http\Controllers\ProductsController::class, 'create']);
 Route::post('store', [App\Http\Controllers\ProductsController::class, 'store']);
 Route::get('edit/{id}', [App\Http\Controllers\ProductsController::class, 'edit']);
-Route::post('update', [App\Http\Controllers\ProductsController::class, 'update']);
+Route::post('update/{id}', [App\Http\Controllers\ProductsController::class, 'update']);
 Route::get('delete/{id}', [App\Http\Controllers\ProductsController::class, 'delete']);
 
 // Route::get('/', function () {
