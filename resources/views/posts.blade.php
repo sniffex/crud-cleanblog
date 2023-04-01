@@ -58,6 +58,7 @@
                                             @endif
                                         </td>
                                             <td colspan="2">
+                                                <a class="btn btn-primary" href="{{url('show/'.$item->id)}}">Show</a>
                                                 <a class="btn btn-primary" href="{{url('edit/'.$item->id)}}">Edit</a>
                                                 <a class="btn btn-danger" href="{{url('delete/'.$item->id)}}">Delete</a>
                                             </td>
